@@ -48,7 +48,7 @@ class ServerThread(threading.Thread):
                 if i[0] == 'start':
                     self.create_server(int(i[1]))
                     self.is_server_running = True
-                    print('SERVING @: {}:{}'.format(self.serv_info[0],self.serv_info[1]))
+                    print('SERVING @: {0}:{1}'.format(self.serv_info[0],self.serv_info[1]))
                     self.server.serve_forever()
                 elif i[0] == 'stop':
                     self.is_server_running=False
@@ -69,7 +69,7 @@ class Gui(tk.Tk):
         f5 = ttk.Frame(self)
 
         ttk.Label(f0,text='Port can be 1-65535. A blank directory path will host the directory\nthat contains this program').pack(side='left')
-        ttk.Label(f1,text='Your IP address:  {}'.format(ip_address),font='Helvetica 10 bold').pack()
+        ttk.Label(f1,text='Your IP address:  {0}'.format(ip_address),font='Helvetica 10 bold').pack()
         ttk.Label(f2,text='Port to host on: ',font='Helvetica 10 bold').pack(side='left')
         self.port = ttk.Entry(f2,width=6)
         self.port.insert('end','8000')
@@ -117,7 +117,7 @@ class Gui(tk.Tk):
             while not server_thread.is_server_running:
                 pass
             self.toggle_state_widgets()
-            messagebox.showinfo('NOW SERVING','Now serving {} @{}:{}'.format(os.getcwd(),ip_address,port))
+            messagebox.showinfo('NOW SERVING','Now serving {0} @{1}:{2}'.format(os.getcwd(),ip_address,port))
         else:
             messagebox.showerror('Invalid path','The path you have provided does not exist!')
         
